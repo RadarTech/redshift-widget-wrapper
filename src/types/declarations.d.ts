@@ -1,9 +1,9 @@
 import { WidgetOptions } from '.';
-import { Api } from '../api';
+import { DirectEmbedApi, ModalApi, OptionsApi } from '../api';
 
 declare global {
   interface Window {
-    redshift: Api;
+    redshift: OptionsApi | ModalApi | DirectEmbedApi;
     redshiftOptions: WidgetOptions;
   }
 }

@@ -1,13 +1,11 @@
-import { addWidget, removeWidget } from './helpers';
-import { WidgetOptions } from './types';
+import { addWidget, removeWidget } from '../helpers';
+import { OptionsApi } from './options-api';
 
 /**
- * The API used to communicate with trade widget.
+ * The API used to communicate with trade widget when the embed mode is set to modal.
  */
-export class Api {
+export class ModalApi extends OptionsApi {
   private _isOpen: boolean;
-  private _brandColor: string;
-  private _brandImageUrl: string;
 
   /**
    * Whether or not the trade widget is open
@@ -17,15 +15,8 @@ export class Api {
   }
 
   constructor() {
+    super();
     this._isOpen = false;
-  }
-
-  /**
-   * Set the widget configuration options
-   * @param options The widget options, including brand image and color
-   */
-  public setOptions(options: WidgetOptions) {
-    window.redshiftOptions = options;
   }
 
   /**
