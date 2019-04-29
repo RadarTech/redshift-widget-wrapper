@@ -2,14 +2,16 @@
 <head>
   <title>Widget Wrapper Playground</title>
 </head>
-<body>
-    <script src="/main.bundle.js"></script>
-    <script>
-      redshift.setOptions({
-        mode: 'modal',
-        brandColor: '#5E8D3D',
-        brandImageUrl: 'https://via.placeholder.com/106x40.png?text=Some%20Brand'
-      });
-    </script>
+<body style="text-align: center; padding: 10rem;">
+  <h1>Welcome to the widget wrapper playground!</h1>
+  <p>Update the options in <code>index.html</code> or access the <code>redshift</code> object in the dev console to communicate with the widget.</p>
+  <script src="/main.bundle.js"></script>
+  <script>
+    redshift.setOptions({
+      mode: 'modal',
+      brandColor: '#5E8D3D',
+      brandImageUrl: 'https://via.placeholder.com/106x40.png?text=Some%20Brand'
+    });
+  </script>
 </body>
 </html>
