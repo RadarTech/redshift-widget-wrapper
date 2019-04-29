@@ -1,7 +1,6 @@
-import resizer from 'iframe-resizer';
-import { DirectEmbedApi, ModalApi, OptionsApi } from './api';
-import { RedshiftError } from './types';
-import { widgetHelper } from './widget-helper';
+import { OptionsApi } from './api';
+import { DirectEmbed, Modal } from './mode';
+import { EmbedMode, RedshiftError } from './types';
 
 // Attach the options API to the window immediately
 (() => {
@@ -18,24 +17,10 @@ window.addEventListener('load', configureWidget, false);
 function configureWidget() {
   const { embedMode } = window.redshiftOptions;
   switch (embedMode) {
-    case 'direct-embed':
-      {
-        window.redshift = new DirectEmbedApi();
-        widgetHelper.attachAsDirectEmbed();
-        resizer.iframeResizer(
-          {
-            checkOrigin: false,
-            heightCalculationMethod: 'taggedElement',
-          },
-          `#${widgetHelper.iframeId}`,
-        );
-      }
-      break;
-    case 'modal':
-      {
-        window.redshift = new ModalApi();
-      }
-      break;
+    case EmbedMode.DIRECT_EMBED:
+      return new DirectEmbed();
+    case EmbedMode.MODAL:
+      return new Modal();
     default:
       throw new Error(RedshiftError.INVALID_REDSHIFT_EMBED_MODE);
   }

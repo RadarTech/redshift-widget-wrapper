@@ -11,7 +11,10 @@ export interface WidgetOptions {
 /**
  * Whether the widget should appear as a modal or directly embedded in the webpage
  */
-export type EmbedMode = 'direct-embed' | 'modal';
+export enum EmbedMode {
+  DIRECT_EMBED = 'direct-embed',
+  MODAL = 'modal',
+}
 
 /**
  * Redshift widget wrapper errors

@@ -1,4 +1,3 @@
-import { widgetHelper } from '../widget-helper';
 import { OptionsApi } from './options-api';
 
 /**
@@ -6,6 +5,8 @@ import { OptionsApi } from './options-api';
  */
 export class ModalApi extends OptionsApi {
   private _isOpen: boolean;
+  private _attach: () => void;
+  private _remove: () => void;
 
   /**
    * Whether or not the trade widget is open
@@ -14,8 +15,10 @@ export class ModalApi extends OptionsApi {
     return this._isOpen;
   }
 
-  constructor() {
+  constructor(attach: () => void, remove: () => void) {
     super();
+    this._attach = attach;
+    this._remove = remove;
     this._isOpen = false;
   }
 
@@ -23,7 +26,7 @@ export class ModalApi extends OptionsApi {
    * Open the widget
    */
   public open() {
-    widgetHelper.attachAsModal();
+    this._attach();
     this._isOpen = true;
   }
 
@@ -31,7 +34,7 @@ export class ModalApi extends OptionsApi {
    * Close the widget
    */
   public close() {
-    widgetHelper.remove();
+    this._remove();
     this._isOpen = false;
   }
 

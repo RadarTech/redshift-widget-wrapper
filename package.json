@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "dotenv-webpack": "^1.7.0",
-    "iframe-resizer": "^4.1.1"
+    "iframe-resizer": "^4.1.1",
+    "penpal": "^4.0.0"
   }
 }
