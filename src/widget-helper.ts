@@ -26,8 +26,9 @@ export const widgetHelper = {
       iframe.scrolling = 'no';
       iframe.width = '400px';
 
-      // No border
+      // No border, add box-shadow
       iframe.style.border = 'none';
+      iframe.style.boxShadow = '0 0 50px rgba(0, 0, 0, .1)';
 
       // Populate the iframe with the widget
       iframe.src = process.env.REDSHIFT_WIDGET_URL;
