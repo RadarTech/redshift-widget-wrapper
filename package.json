@@ -1,0 +1,53 @@
+{
+  "private": true,
+  "name": "redshift-widget-wrapper",
+  "version": "0.1.0",
+  "description": "A wrapper project used to embed the widget and enable cross-domain communication",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/ --mode development --config webpack/dev.config.js",
+    "build": "webpack --config webpack/prod.config.js --mode production",
+    "build.dev": "webpack --config webpack/dev.config.js -p",
+    "build.prod": "webpack --config webpack/prod.config.js -p",
+    "test": "mocha 'test/**/*.test.ts'",
+    "lint": "tslint -c tslint.json '{src,test}/**/*.ts' --fix"
+  },
+  "devDependencies": {
+    "@radar/tslint-config": "^5.0.1",
+    "@types/chai": "^4.1.7",
+    "@types/dotenv": "^6.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "7.0.0",
+    "awesome-typescript-loader": "5.2.0",
+    "chai": "^4.2.0",
+    "dotenv": "^7.0.0",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
+    "mocha": "^6.1.4",
+    "mocha-typescript": "^1.1.17",
+    "prettier": "^1.17.0",
+    "source-map-loader": "0.2.3",
+    "ts-node": "^8.1.0",
+    "tslint": "5.10.0",
+    "tslint-loader": "3.6.0",
+    "typescript": "3.4.5",
+    "webpack": "4.12.0",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "3.1.4",
+    "webpack-merge": "^4.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn lint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "dotenv-webpack": "^1.7.0"
+  }
+}
