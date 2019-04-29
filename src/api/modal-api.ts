@@ -1,4 +1,4 @@
-import { addWidget, removeWidget } from '../helpers';
+import { widgetHelper } from '../widget-helper';
 import { OptionsApi } from './options-api';
 
 /**
@@ -23,7 +23,7 @@ export class ModalApi extends OptionsApi {
    * Open the widget
    */
   public open() {
-    addWidget();
+    widgetHelper.attachAsModal();
     this._isOpen = true;
   }
 
@@ -31,7 +31,7 @@ export class ModalApi extends OptionsApi {
    * Close the widget
    */
   public close() {
-    removeWidget();
+    widgetHelper.remove();
     this._isOpen = false;
   }
 

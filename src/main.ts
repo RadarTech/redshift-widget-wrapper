@@ -1,5 +1,7 @@
+import resizer from 'iframe-resizer';
 import { DirectEmbedApi, ModalApi, OptionsApi } from './api';
-import { EmbedMode, RedshiftError } from './types';
+import { RedshiftError } from './types';
+import { widgetHelper } from './widget-helper';
 
 // Attach the options API to the window immediately
 (() => {
@@ -7,25 +9,33 @@ import { EmbedMode, RedshiftError } from './types';
 })();
 
 // Attach the mode-specific API on load
-window.addEventListener('load', attachModeSpecificAPI, false);
+window.addEventListener('load', configureWidget, false);
 
 /**
- * Attach the API used to interact with the chosen embed mode.
+ * Attach the API used to interact with the chosen embed mode and
+ * additional setup.
  */
-function attachModeSpecificAPI() {
-  const { mode } = window.redshiftOptions;
-  window.redshift = getApiForMode(mode);
-}
-
-/**
- * Get the API for the active embed mode.
- */
-function getApiForMode(mode: EmbedMode) {
-  switch (mode) {
+function configureWidget() {
+  const { embedMode } = window.redshiftOptions;
+  switch (embedMode) {
     case 'direct-embed':
-      return new DirectEmbedApi();
+      {
+        window.redshift = new DirectEmbedApi();
+        widgetHelper.attachAsDirectEmbed();
+        resizer.iframeResizer(
+          {
+            checkOrigin: false,
+            heightCalculationMethod: 'taggedElement',
+          },
+          `#${widgetHelper.iframeId}`,
+        );
+      }
+      break;
     case 'modal':
-      return new ModalApi();
+      {
+        window.redshift = new ModalApi();
+      }
+      break;
     default:
       throw new Error(RedshiftError.INVALID_REDSHIFT_EMBED_MODE);
   }
