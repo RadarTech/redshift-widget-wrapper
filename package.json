@@ -16,6 +16,7 @@
     "@radar/tslint-config": "^5.0.1",
     "@types/chai": "^4.1.7",
     "@types/dotenv": "^6.1.1",
+    "@types/iframe-resizer": "^3.5.7",
     "@types/mocha": "^5.2.6",
     "@types/node": "7.0.0",
     "awesome-typescript-loader": "5.2.0",
@@ -48,6 +49,8 @@
     ]
   },
   "dependencies": {
-    "dotenv-webpack": "^1.7.0"
+    "dotenv-webpack": "^1.7.0",
+    "iframe-resizer": "^4.1.1",
+    "penpal": "^4.0.0"
   }
 }

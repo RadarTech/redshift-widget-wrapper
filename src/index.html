@@ -2,7 +2,17 @@
 <head>
   <title>Widget Wrapper Playground</title>
 </head>
-<body>
-    <script src="/main.bundle.js"></script>
+<body style="text-align: center; padding: 10rem;">
+  <h1>Welcome to the widget wrapper playground!</h1>
+  <p>Update the options in <code>index.html</code> or access the <code>redshift</code> object in the dev console to communicate with the widget.</p>
+  <button onclick="redshift.open()">Open Widget</button>
+  <script src="/main.bundle.js"></script>
+  <script>
+    redshift.setOptions({
+      embedMode: 'modal',
+      brandColor: '#5E8D3D',
+      brandImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg'
+    });
+  </script>
 </body>
 </html>
