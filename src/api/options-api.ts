@@ -1,4 +1,4 @@
-import { WidgetOptions } from '../types';
+import { EmbedMode, WidgetOptions } from '../types';
 
 /**
  * The portion of the widget API that is used to set the widget configuration.
@@ -9,6 +9,9 @@ export class OptionsApi {
    * @param options The widget options, including brand image and color
    */
   public setOptions(options: WidgetOptions) {
-    window.redshiftOptions = options;
+    window.redshiftOptions = {
+      embedMode: EmbedMode.MODAL, // Default to modal mode
+      ...options,
+    };
   }
 }
