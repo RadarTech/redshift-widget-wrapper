@@ -66,7 +66,7 @@ redshift.close()
 redshift.toggle()
 ```
 
-### What it looks like in practice
+#### What it looks like in practice
 
 ```html
 <!-- Without any options -->
@@ -102,7 +102,7 @@ This mode will directly embed the widget into the consuming website. By default,
 
 <img width="939" alt="Screen Shot 2019-04-30 at 4 21 01 PM" src="https://user-images.githubusercontent.com/20102664/56997131-f6ea5f00-6b63-11e9-96e1-bacb610c1c66.png">
 
-### What it looks like in practice
+#### What it looks like in practice
 
 ```html
 <html>
