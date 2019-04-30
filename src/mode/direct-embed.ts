@@ -25,10 +25,11 @@ export class DirectEmbed extends Shared {
       this._iframe = document.createElement('iframe');
       this._iframe.id = this._iframeId;
 
-      // Hide the frame border, disable scrolling, and set the width
+      // Hide the frame border, disable scrolling, and set the width + height
       this._iframe.frameBorder = '0';
       this._iframe.scrolling = 'no';
       this._iframe.width = '400px';
+      this._iframe.height = '449px';
 
       // No border, add box-shadow
       this._iframe.style.border = 'none';

@@ -10,10 +10,10 @@ export class Modal extends Shared {
   constructor() {
     super();
     window.redshift = new ModalApi(
-      this.attachToWebpage,
-      this.removeFromWebpage,
+      this.attachToWebpage.bind(this),
+      this.removeFromWebpage.bind(this),
+      this.initializeXDomainMessaging.bind(this),
     );
-    this.initializeXDomainMessaging();
   }
 
   /**
