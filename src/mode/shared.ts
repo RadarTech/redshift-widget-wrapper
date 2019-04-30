@@ -3,6 +3,8 @@ import { EmbedMode } from '../types';
 
 export abstract class Shared {
   protected _iframe: HTMLIFrameElement;
+  protected readonly _rootId = 'redshiftWidgetRoot';
+  protected readonly _iframeId = 'redshiftWidgetIframe';
   protected abstract _mode: EmbedMode;
 
   /**

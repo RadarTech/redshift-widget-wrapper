@@ -5,8 +5,6 @@ import { Shared } from './shared';
 
 export class DirectEmbed extends Shared {
   protected _mode = EmbedMode.DIRECT_EMBED;
-  private readonly _rootId = 'redshiftWidgetRoot';
-  private readonly _iframeId = 'redshiftWidgetIframe';
 
   constructor() {
     super();

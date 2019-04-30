@@ -4,8 +4,6 @@ import { Shared } from './shared';
 
 export class Modal extends Shared {
   protected _mode = EmbedMode.MODAL;
-  private readonly _rootId = 'redshiftWidgetRoot';
-  private readonly _iframeId = 'redshiftWidgetIframe';
 
   constructor() {
     super();
