@@ -66,8 +66,59 @@ redshift.close()
 redshift.toggle()
 ```
 
+### What it looks like in practice
+
+```html
+<!-- Without any options -->
+<html>
+<head>
+</head>
+<body>
+  <script src="/main.bundle.js"></script>
+</body>
+</html>
+
+<!-- With options -->
+<html>
+<head>
+</head>
+<body>
+  <script src="/main.bundle.js"></script>
+  <script>
+    redshift.setOptions({
+      embedMode: 'modal',
+      brandColor: '#5E8D3D',
+      brandImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg',
+    });
+  </script>
+</body>
+</html>
+```
+
+
 ### Direct Embed
 
 This mode will directly embed the widget into the consuming website. By default, the widget will be attached to the `body` of the website. If a `containerId` is passed in the widget options then the widget will be rendered inside that container. 
 
 <img width="939" alt="Screen Shot 2019-04-30 at 4 21 01 PM" src="https://user-images.githubusercontent.com/20102664/56997131-f6ea5f00-6b63-11e9-96e1-bacb610c1c66.png">
+
+### What it looks like in practice
+
+```html
+<html>
+<head>
+</head>
+<body>
+  <div id="render-me-here"></div>
+  <script src="/main.bundle.js"></script>
+  <script>
+    redshift.setOptions({
+      embedMode: 'direct-embed',
+      brandColor: '#5E8D3D',
+      brandImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg',
+      containerId: 'render-me-here',
+    });
+  </script>
+</body>
+</html>
+```
