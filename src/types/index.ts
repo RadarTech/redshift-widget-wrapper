@@ -2,7 +2,7 @@
  * The widget configuration options
  */
 export interface WidgetOptions {
-  embedMode: EmbedMode; // Required Embed Mode
+  embedMode?: EmbedMode; // Default: modal
   brandColor?: string; // Default: #262525
   brandImageUrl?: string; // Default: REDSHIFT Image
   containerId?: string; // The id of the container that the widget will be attached to. Default: body

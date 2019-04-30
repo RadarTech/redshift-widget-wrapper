@@ -15,8 +15,17 @@ window.addEventListener('load', configureWidget, false);
  * additional setup.
  */
 function configureWidget() {
-  const { embedMode } = window.redshiftOptions;
-  switch (embedMode) {
+  const options = {
+    embedMode: EmbedMode.MODAL, // Default to modal mode
+    ...window.redshiftOptions,
+  };
+
+  // Set options if none were provided
+  if (!window.redshiftOptions) {
+    window.redshift.setOptions(options);
+  }
+
+  switch (options.embedMode) {
     case EmbedMode.DIRECT_EMBED:
       return new DirectEmbed();
     case EmbedMode.MODAL:
