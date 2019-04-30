@@ -58,4 +58,17 @@ export class Modal extends Shared {
       widget.parentNode.removeChild(widget);
     }
   }
+
+  /**
+   * Initialize cross-domain messaging, which includes
+   * the close modal method.
+   */
+  public initializeXDomainMessaging() {
+    super.initializeXDomainMessaging({
+      closeModal: () => {
+        this.removeFromWebpage();
+        return true;
+      },
+    });
+  }
 }

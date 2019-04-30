@@ -9,8 +9,9 @@ export abstract class Shared {
 
   /**
    * Initiialize cross-domain messaging via penpal
+   * @param methods Mode-specific methods
    */
-  protected initializeXDomainMessaging() {
+  protected initializeXDomainMessaging(methods?: { [key: string]: Function }) {
     connectToChild({
       iframe: this._iframe,
       // Methods the parent is exposing to the child
@@ -21,6 +22,7 @@ export abstract class Shared {
         getEmbedMode: () => {
           return this._mode;
         },
+        ...methods,
       },
     });
   }
