@@ -74,7 +74,7 @@ redshift.toggle()
 <head>
 </head>
 <body>
-  <script src="/main.bundle.js"></script>
+  <script src="/redshift.js"></script>
 </body>
 </html>
 
@@ -83,7 +83,7 @@ redshift.toggle()
 <head>
 </head>
 <body>
-  <script src="/main.bundle.js"></script>
+  <script src="/redshift.js"></script>
   <script>
     redshift.setOptions({
       embedMode: 'modal',
@@ -110,7 +110,7 @@ This mode will directly embed the widget into the consuming website. By default,
 </head>
 <body>
   <div id="render-me-here"></div>
-  <script src="/main.bundle.js"></script>
+  <script src="/redshift.js"></script>
   <script>
     redshift.setOptions({
       embedMode: 'direct-embed',
