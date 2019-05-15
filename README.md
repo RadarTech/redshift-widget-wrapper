@@ -7,7 +7,7 @@ A wrapper project used to embed the widget and enable cross-domain communication
 At a minimum, a script tag must be added to the consuming webpage, which will fetch the widget wrapper javascript. In the `index.html` source file, this looks like:
 
 ```html
-<script src="/main.bundle.js"></script>
+<script src="/redshift.js"></script>
 ```
 
 ## Window API
