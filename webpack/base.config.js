@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ROOT = path.resolve( __dirname, '../src' );
 const DESTINATION = path.resolve( __dirname, '../dist' );
@@ -50,6 +51,15 @@ module.exports = {
             }
         ]
     },
+
+    plugins: [
+        new CopyWebpackPlugin([
+            {
+                from: 'assets',
+                to: 'assets'
+            }
+        ]),
+    ],
 
     devtool: 'cheap-module-source-map',
     devServer: {}

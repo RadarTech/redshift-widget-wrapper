@@ -27,11 +27,15 @@ export class DirectEmbed extends Shared {
       this._iframe.frameBorder = '0';
       this._iframe.scrolling = 'no';
       this._iframe.width = '400px';
-      this._iframe.height = '449px';
+      this._iframe.height = '493px';
 
       // No border, add box-shadow
       this._iframe.style.border = 'none';
       this._iframe.style.boxShadow = '0 0 50px rgba(0, 0, 0, .1)';
+
+      // Set a background color and image that display while loading the widget
+      this._iframe.style.background =
+        '#ffffff url("/assets/redshift-logo.svg") no-repeat center center';
 
       // Populate the iframe with the widget
       this._iframe.src = process.env.REDSHIFT_WIDGET_URL;
