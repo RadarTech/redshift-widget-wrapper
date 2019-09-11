@@ -4,10 +4,10 @@ A wrapper project used to embed the widget and enable cross-domain communication
 
 ## Basic Usage
 
-At a minimum, a script tag must be added to the consuming webpage, which will fetch the widget wrapper javascript. In the `index.html` source file, this looks like:
+At a minimum, the following script tag must be added to the consuming webpage, which will fetch the widget wrapper javascript:
 
 ```html
-<script src="/redshift.js"></script>
+<script src="https://cdn.radar.tech/redshift.js"></script>
 ```
 
 ## Window API

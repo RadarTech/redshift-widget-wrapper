@@ -35,7 +35,7 @@ export class DirectEmbed extends Shared {
 
       // Set a background color and image that display while loading the widget
       this._iframe.style.background =
-        '#ffffff url("https://widget.redshift.radar.tech/assets/redshift-logo.svg") no-repeat center center';
+        '#ffffff url("https://cdn.radar.tech/assets/redshift-logo.svg") no-repeat center center';
 
       // Populate the iframe with the widget
       this._iframe.src = process.env.REDSHIFT_WIDGET_URL;
