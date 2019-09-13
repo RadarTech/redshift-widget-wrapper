@@ -9,6 +9,15 @@ export class DirectEmbed extends Shared {
   constructor() {
     super();
     window.redshift = new DirectEmbedApi();
+    this.initializeWidget();
+    this.reInitializeOnRouteChange();
+  }
+
+  /**
+   * Attach the widget to the webpage, resize the iframe when the app size changes,
+   * and initialize cross-domain messaging.
+   */
+  private initializeWidget() {
     this.attachToWebpage();
     this.resizeIframeOnChange();
     this.initializeXDomainMessaging();
@@ -42,7 +51,11 @@ export class DirectEmbed extends Shared {
 
       const id = window.redshiftOptions.containerId;
       const root = id ? document.getElementById(id) : document.body;
-      root.appendChild(this._iframe);
+
+      // Append widget if not already present
+      if (root && !root.querySelector(`#${this._iframe.id}`)) {
+        root.appendChild(this._iframe);
+      }
     }
   }
 
@@ -57,5 +70,35 @@ export class DirectEmbed extends Shared {
       },
       `#${this._iframeId}`,
     );
+  }
+
+  /**
+   * Re-initialize the widget when the history api is used, the back button is clicked,
+   * or the hash changes. This is necessary to support single page applications
+   */
+  private reInitializeOnRouteChange() {
+    const { pushState, replaceState } = history;
+
+    // Re-attach when a page is pushed using the History API
+    history.pushState = (...args) => {
+      pushState.apply(history, args);
+      setTimeout(() => this.initializeWidget()); // Wait for DOM update cycle before attaching
+    };
+
+    // Re-attach when a page is replaced using the History API
+    history.replaceState = (...args) => {
+      replaceState.apply(history, args);
+      setTimeout(() => this.initializeWidget()); // Wait for DOM update cycle before attaching
+    };
+
+    // Re-attach when a page is popped
+    window.onpopstate = () => {
+      this.initializeWidget();
+    };
+
+    // Re-attach when the hash changes (necessary for SPA apps not using the history API)
+    window.addEventListener('hashchange', () => {
+      this.initializeWidget();
+    });
   }
 }
