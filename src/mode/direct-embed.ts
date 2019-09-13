@@ -73,8 +73,8 @@ export class DirectEmbed extends Shared {
   }
 
   /**
-   * Re-initialize the widget when the history api is used or the hash changes.
-   * This is necessary to support single page applications
+   * Re-initialize the widget when the history api is used, the back button is clicked,
+   * or the hash changes. This is necessary to support single page applications
    */
   private reInitializeOnRouteChange() {
     const { pushState, replaceState } = history;
