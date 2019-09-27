@@ -24,10 +24,19 @@ export enum EmbedMode {
 }
 
 /**
+ * Whether the widget should run in production (mainnet) or development (kovan testnet) mode
+ */
+export enum Environment {
+  PRODUCTION = 'production',
+  DEVELOPMENT = 'development',
+}
+
+/**
  * The widget configuration options
  */
 export interface WidgetOptions {
   embedMode?: EmbedMode; // Default: modal
+  env?: Environment; // Default: production
   brandColor?: string; // Default: #262525
   brandImageUrl?: string; // Default: REDSHIFT Image
   containerId?: string; // The id of the container that the widget will be attached to. Default: body
@@ -45,7 +54,7 @@ redshift.setOptions(options: WidgetOptions)
 
 This mode is likely preferable for most websites because it does not disrupt their existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business.
 
-<img width="1044" alt="Screen Shot 2019-04-30 at 4 19 41 PM" src="https://user-images.githubusercontent.com/20102664/56997085-d15d5580-6b63-11e9-88ec-63000f897aa9.png">
+<img width="973" alt="Modal Embed" src="https://user-images.githubusercontent.com/20102664/65806350-62058500-e146-11e9-827d-5e422890dd5e.png">
 
 #### Extended Window API
 
@@ -87,8 +96,9 @@ redshift.toggle()
   <script>
     redshift.setOptions({
       embedMode: 'modal',
-      brandColor: '#5E8D3D',
-      brandImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg',
+      env: 'development',
+      brandColor: '#3B3B98',
+      brandImageUrl: 'https://cdn.radar.tech/assets/placeholder-logo.png',
     });
   </script>
 </body>
@@ -100,7 +110,7 @@ redshift.toggle()
 
 This mode will directly embed the widget into the consuming website. By default, the widget will be attached to the `body` of the website. If a `containerId` is passed in the widget options then the widget will be rendered inside that container. 
 
-<img width="939" alt="Screen Shot 2019-04-30 at 4 21 01 PM" src="https://user-images.githubusercontent.com/20102664/56997131-f6ea5f00-6b63-11e9-96e1-bacb610c1c66.png">
+<img width="975" alt="Direct Embed" src="https://user-images.githubusercontent.com/20102664/65806349-60d45800-e146-11e9-9459-50e36dc25999.png">
 
 #### How To
 
@@ -114,8 +124,9 @@ This mode will directly embed the widget into the consuming website. By default,
   <script>
     redshift.setOptions({
       embedMode: 'direct-embed',
-      brandColor: '#5E8D3D',
-      brandImageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg',
+      env: 'development',
+      brandColor: '#3B3B98',
+      brandImageUrl: 'https://cdn.radar.tech/assets/placeholder-logo.png',
       containerId: 'render-me-here',
     });
   </script>

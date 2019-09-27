@@ -3,6 +3,7 @@
  */
 export interface WidgetOptions {
   embedMode?: EmbedMode; // Default: modal
+  env?: Environment; // Default: production
   brandColor?: string; // Default: #262525
   brandImageUrl?: string; // Default: REDSHIFT Image
   containerId?: string; // The id of the container that the widget will be attached to. Default: body
@@ -14,6 +15,14 @@ export interface WidgetOptions {
 export enum EmbedMode {
   DIRECT_EMBED = 'direct-embed',
   MODAL = 'modal',
+}
+
+/**
+ * Whether the widget should run in production (mainnet) or development (kovan testnet) mode
+ */
+export enum Environment {
+  PRODUCTION = 'production',
+  DEVELOPMENT = 'development',
 }
 
 /**
