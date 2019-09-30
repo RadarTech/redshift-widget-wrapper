@@ -1,6 +1,6 @@
 # Redshift Widget Wrapper
 
-A wrapper project used to embed the widget and enable cross-domain communication.
+A wrapper used to embed the redshift widget and enable cross-domain communication
 
 ## Basic Usage
 
@@ -52,7 +52,7 @@ redshift.setOptions(options: WidgetOptions)
 
 ### Modal
 
-This mode is likely preferable for most websites because it does not disrupt their existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business.
+This mode is likely preferable for most websites because it does not disrupt the existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business.
 
 <img width="973" alt="Modal Embed" src="https://user-images.githubusercontent.com/20102664/65806350-62058500-e146-11e9-827d-5e422890dd5e.png">
 
@@ -83,7 +83,7 @@ redshift.toggle()
 <head>
 </head>
 <body>
-  <script src="/redshift.js"></script>
+  <script src="https://cdn.radar.tech/redshift.js"></script>
 </body>
 </html>
 
@@ -92,7 +92,7 @@ redshift.toggle()
 <head>
 </head>
 <body>
-  <script src="/redshift.js"></script>
+  <script src="https://cdn.radar.tech/redshift.js"></script>
   <script>
     redshift.setOptions({
       embedMode: 'modal',
@@ -120,7 +120,7 @@ This mode will directly embed the widget into the consuming website. By default,
 </head>
 <body>
   <div id="render-me-here"></div>
-  <script src="/redshift.js"></script>
+  <script src="https://cdn.radar.tech/redshift.js"></script>
   <script>
     redshift.setOptions({
       embedMode: 'direct-embed',
