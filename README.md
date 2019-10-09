@@ -54,6 +54,8 @@ redshift.setOptions(options: WidgetOptions)
 
 This mode is likely preferable for most websites because it does not disrupt the existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business.
 
+#### [View Live Demo](https://codepen.io/cavan-radar/details/pooJxvj?preview_height=650)
+
 <img width="973" alt="Modal Embed" src="https://user-images.githubusercontent.com/20102664/65806350-62058500-e146-11e9-827d-5e422890dd5e.png">
 
 #### Extended Window API
@@ -108,7 +110,9 @@ redshift.toggle()
 
 ### Direct Embed
 
-This mode will directly embed the widget into the consuming website. By default, the widget will be attached to the `body` of the website. If a `containerId` is passed in the widget options then the widget will be rendered inside that container. 
+This mode will directly embed the widget into the consuming website. By default, the widget will be attached to the `body` of the website. If a `containerId` is passed in the widget options then the widget will be rendered inside that container.
+
+#### [View Live Demo](https://codepen.io/cavan-radar/details/BaaNqbo?preview_height=650)
 
 <img width="975" alt="Direct Embed" src="https://user-images.githubusercontent.com/20102664/65806349-60d45800-e146-11e9-9459-50e36dc25999.png">
 
