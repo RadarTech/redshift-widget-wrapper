@@ -62,6 +62,7 @@ export class Modal extends Shared {
   /**
    * Initialize cross-domain messaging, which includes
    * the close modal method.
+   * @param invoice An optional invoice to pass to the widget (for pre-populating invoice input)
    */
   public initializeModalXDomainMessaging(invoice?: string) {
     super.initializeXDomainMessaging({

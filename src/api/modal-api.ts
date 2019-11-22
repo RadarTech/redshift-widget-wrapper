@@ -30,6 +30,7 @@ export class ModalApi extends OptionsApi {
 
   /**
    * Open the widget
+   * @param invoice An optional invoice to pass to the widget (for pre-populating invoice input)
    */
   public open(invoice?: string) {
     this._attach();
@@ -47,6 +48,7 @@ export class ModalApi extends OptionsApi {
 
   /**
    * Toggle the widget
+   * @param invoice An optional invoice to pass to the widget (for pre-populating invoice input)
    */
   public toggle(invoice?: string) {
     this.isOpen ? this.close() : this.open(invoice);
