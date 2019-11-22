@@ -7,7 +7,7 @@ export class ModalApi extends OptionsApi {
   private _isOpen: boolean;
   private _attach: () => void;
   private _remove: () => void;
-  private _initMessaging: () => void;
+  private _initMessaging: (invoice?: string) => void;
 
   /**
    * Whether or not the trade widget is open
@@ -31,9 +31,9 @@ export class ModalApi extends OptionsApi {
   /**
    * Open the widget
    */
-  public open() {
+  public open(invoice?: string) {
     this._attach();
-    this._initMessaging();
+    this._initMessaging(invoice);
     this._isOpen = true;
   }
 
@@ -48,7 +48,7 @@ export class ModalApi extends OptionsApi {
   /**
    * Toggle the widget
    */
-  public toggle() {
-    this.isOpen ? this.close() : this.open();
+  public toggle(invoice?: string) {
+    this.isOpen ? this.close() : this.open(invoice);
   }
 }

@@ -10,7 +10,7 @@ export class Modal extends Shared {
     window.redshift = new ModalApi(
       this.attachToWebpage.bind(this),
       this.removeFromWebpage.bind(this),
-      this.initializeXDomainMessaging.bind(this),
+      this.initializeModalXDomainMessaging.bind(this),
     );
   }
 
@@ -63,11 +63,15 @@ export class Modal extends Shared {
    * Initialize cross-domain messaging, which includes
    * the close modal method.
    */
-  public initializeXDomainMessaging() {
+  public initializeModalXDomainMessaging(invoice?: string) {
+    // ts-ignore-line
     super.initializeXDomainMessaging({
       closeModal: () => {
         this.removeFromWebpage();
         return true;
+      },
+      getInvoice: () => {
+        return invoice;
       },
     });
   }

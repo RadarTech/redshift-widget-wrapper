@@ -52,7 +52,7 @@ redshift.setOptions(options: WidgetOptions)
 
 ### Modal
 
-This mode is likely preferable for most websites because it does not disrupt the existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business.
+This mode is likely preferable for most websites because it does not disrupt the existing UI in any way. Simply slap `onclick="redshift.open()"` on a button and you're in business. You can optionally pre-populate the widget's invoice field by passing it into the open or toggle methods.
 
 #### [View Live Demo](https://codepen.io/cavan-radar/details/pooJxvj?preview_height=650)
 
@@ -67,6 +67,11 @@ This mode is likely preferable for most websites because it does not disrupt the
 redshift.open()
 
 /**
+ * Open the widget with invoice pre-populated
+ */
+redshift.open(invoice)
+
+/**
  * Close the widget
  */
 redshift.close() 
@@ -75,6 +80,11 @@ redshift.close()
  * Toggle the widget
  */
 redshift.toggle()
+
+/**
+ * Toggle the widget with invoice pre-populated
+ */
+redshift.toggle(invoice)
 ```
 
 #### How To
