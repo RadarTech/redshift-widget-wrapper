@@ -64,7 +64,6 @@ export class Modal extends Shared {
    * the close modal method.
    */
   public initializeModalXDomainMessaging(invoice?: string) {
-    // ts-ignore-line
     super.initializeXDomainMessaging({
       closeModal: () => {
         this.removeFromWebpage();
