@@ -7,6 +7,7 @@ export interface WidgetOptions {
   brandColor?: string; // Default: #262525
   brandImageUrl?: string; // Default: REDSHIFT Image
   containerId?: string; // The id of the container that the widget will be attached to. Default: body
+  invoice?: string; // an optional invoice to pass to the widget. Used for pre-populating the invoice input.
 }
 
 /**
